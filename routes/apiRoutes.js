@@ -58,9 +58,6 @@ module.exports = function(app) {
   //     });
   //   });
 
-  app.get("/results", function(req, res) {
-    res.render("results");
-  });
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
   });

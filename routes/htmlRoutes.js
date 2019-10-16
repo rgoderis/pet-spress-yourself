@@ -1,5 +1,6 @@
 var db = require("../models");
 var path = require("path");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   // GET route for data scraper page
@@ -13,6 +14,13 @@ module.exports = function(app) {
 
   app.get("/login", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
+  });
+
+  app.get("/results", isAuthenticated, function(req, res) {
+    if (!req.user) {
+      res.redirect("/");
+    }
+    res.render("results");
   });
 
   // // Load index page

@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Animals = sequelize.define("animals", {
+  var Animals = sequelize.define("animal", {
     type: DataTypes.STRING,
     name: DataTypes.STRING,
     breed: DataTypes.STRING,
@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-    phota: DataTypes.STRING,
+    photo: DataTypes.STRING,
     url: DataTypes.STRING
   });
   return Animals;

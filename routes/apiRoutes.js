@@ -1,5 +1,6 @@
 var db = require("../models");
 var petfinder = require("@petfinder/petfinder-js");
+var passport = require("../config/passport");
 
 var client = new petfinder.Client({
   apiKey: "1a5C4LXq8WziAjDesbcInMcJcdJyJCKXp0gasXyMWE1qtDaJjy",

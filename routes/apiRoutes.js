@@ -1,6 +1,6 @@
-// var db = require("../models");
-
+var db = require("../models");
 var petfinder = require("@petfinder/petfinder-js");
+
 var client = new petfinder.Client({
   apiKey: "1a5C4LXq8WziAjDesbcInMcJcdJyJCKXp0gasXyMWE1qtDaJjy",
   secret: "ybnkuHt223mDH0S5taohO68J7Fkxom1XwuVC449b"
@@ -8,12 +8,12 @@ var client = new petfinder.Client({
 
 var animalsCall = function(type, size, gender){
   client.animal
-  .serch({type: type, location: "Orlando, fl", size: size, genger: gender, limit: 100})
+  .search({type: type, location: "Orlando, Fl", size: size, gender: gender, limit: 100})
   .then(function(response){
     for (var i = 0; i < response.data.animals.length; i++) {
-      db.Animals.create({
+      db.animal.create({
         type: response.data.animals[i].type, 
-        name: naresponse.data.animals[i].name, 
+        name: response.data.animals[i].name, 
         breed: response.data.animals[i].breeds.primary, 
         age: response.data.animals[i].age, 
         gender: response.data.animals[i].gender, 
@@ -25,9 +25,12 @@ var animalsCall = function(type, size, gender){
         photo: response.data.animals[i].photos[0].medium,
         url: response.data.animals[i].url
       }).then(function(results) {
-        res.json(results);
+        console.log("Scraping API for new data...");
       });
     };
+  })
+  .catch(function (error) {
+    console.log(error);
   });
 }
 
@@ -54,7 +57,7 @@ module.exports = function(app) {
 //   });
 
   // Create Animals DB
-  app.post("/api/animals", function(res, res) {
+  app.post("/api/scraper", function(req, res) {
     animalsCall("dog", "small", "male");
     animalsCall("dog", "medium", "male");
     animalsCall("dog", "large", "male");

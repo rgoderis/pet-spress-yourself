@@ -6,33 +6,46 @@ var client = new petfinder.Client({
   secret: "ybnkuHt223mDH0S5taohO68J7Fkxom1XwuVC449b"
 });
 
-var animalsCall = function(type, size, gender){
+var animalsCall = function(type, size, gender) {
   client.animal
-  .search({type: type, location: "Orlando, Fl", size: size, gender: gender, limit: 100})
-  .then(function(response){
-    for (var i = 0; i < response.data.animals.length; i++) {
-      db.animal.create({
-        type: response.data.animals[i].type, 
-        name: response.data.animals[i].name, 
-        breed: response.data.animals[i].breeds.primary, 
-        age: response.data.animals[i].age, 
-        gender: response.data.animals[i].gender, 
-        size: response.data.animals[i].size, 
-        specialNeeds: response.data.animals[i].attributes.special_needs, 
-        children: response.data.animals[i].environment.children,
-        dogs: response.data.animals[i].environment.dogs,
-        cats: response.data.animals[i].environment.cats,
-        photo: response.data.animals[i].photos[0].medium,
-        url: response.data.animals[i].url
-      }).then(function(results) {
-        console.log("Scraping API for new data...");
-      });
-    };
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-}
+    .search({
+      type: type,
+      location: "Orlando, Fl",
+      size: size,
+      gender: gender,
+      limit: 100
+    })
+    .then(function(response) {
+      for (var i = 0; i < response.data.animals.length; i++) {
+        if (response.data.animals[i].photos[0] === undefined) {
+          console.log("No Photo");
+        } else {
+          db.animal
+            .create({
+              type: response.data.animals[i].type, 
+              name: response.data.animals[i].name, 
+              breed: response.data.animals[i].breeds.primary, 
+              age: response.data.animals[i].age, 
+              gender: response.data.animals[i].gender, 
+              size: response.data.animals[i].size, 
+              specialNeeds: response.data.animals[i].attributes.special_needs, 
+              children: response.data.animals[i].environment.children,
+              dogs: response.data.animals[i].environment.dogs,
+              cats: response.data.animals[i].environment.cats,
+              photo: response.data.animals[i].photos[0].medium,
+              url: response.data.animals[i].url
+            })
+            .then(function(results) {
+              console.log("Scraping API for new data...");
+            });
+        }
+      }
+      console.log("finished");
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+};
 
 module.exports = function(app) {
 //   // Get all examples

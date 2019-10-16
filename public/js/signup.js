@@ -59,7 +59,7 @@ $(document).ready(function() {
       activityLevel: activityLevel
     })
       .then(function(data) {
-        window.location.replace("/members");
+        window.location.replace("/results");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);

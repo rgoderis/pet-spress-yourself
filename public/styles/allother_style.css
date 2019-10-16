@@ -1,0 +1,10 @@
+body {
+    padding-top: 70px;
+    margin-bottom: 70px;
+    background-image: url("../images/vectorstock_21617018.png");
+    background-size: contain;
+}
+
+.container {
+    background-color: white;
+}

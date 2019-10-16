@@ -23,5 +23,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     url: DataTypes.STRING
   });
+  Animals.associate = function(models) {
+    Animals.hasMany(models.User);
+  };
   return Animals;
 };

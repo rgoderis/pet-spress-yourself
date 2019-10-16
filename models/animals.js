@@ -7,22 +7,20 @@ module.exports = function(sequelize, DataTypes) {
     gender: DataTypes.STRING,
     size: DataTypes.STRING,
     specialNeeds: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
+      type: DataTypes.BOOLEAN
     },
     children: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
+      type: DataTypes.BOOLEAN
     },
     dogs: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
+      type: DataTypes.BOOLEAN
     },
     cats: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
+      type: DataTypes.BOOLEAN
     },
-    photo: DataTypes.STRING,
+    photo: {
+      type: DataTypes.STRING
+    },
     url: DataTypes.STRING
   });
   return Animals;

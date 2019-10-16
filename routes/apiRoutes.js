@@ -54,6 +54,9 @@ module.exports = function(app) {
   //       res.json(dbExamples);
   //     });
   //   });
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    res.json(req.user);
+  });
   app.post("/api/signup", function(req, res) {
     db.User.create({
       email: req.body.email,

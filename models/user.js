@@ -13,6 +13,30 @@ module.exports = function(sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    preferredAnimal: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    livingSituation: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    children: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    otherCats: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    otherDogs: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    activityLevel: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
   User.prototype.validPassword = function(password) {

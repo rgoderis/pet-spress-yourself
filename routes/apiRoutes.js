@@ -1,9 +1,11 @@
 var db = require("../models");
 var petfinder = require("@petfinder/petfinder-js");
 
+require("dotenv").config();
+
 var client = new petfinder.Client({
-  apiKey: "1a5C4LXq8WziAjDesbcInMcJcdJyJCKXp0gasXyMWE1qtDaJjy",
-  secret: "ybnkuHt223mDH0S5taohO68J7Fkxom1XwuVC449b"
+  apiKey: process.env.petKey,
+  secret: process.env.petSecret
 });
 
 var animalsCall = function(type, size, gender) {

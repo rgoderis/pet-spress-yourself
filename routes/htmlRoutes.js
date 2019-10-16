@@ -7,6 +7,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/scraper.html"));
   });
 
+  app.get("/signup", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/signup.html"))
+  });
+
   // // Load index page
   // app.get("/", function(req, res) {
   //   db.Example.findAll({}).then(function(dbExamples) {

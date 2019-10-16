@@ -48,29 +48,46 @@ var animalsCall = function(type, size, gender) {
 };
 
 module.exports = function(app) {
-//   // Get all examples
-//   app.get("/api/examples", function(req, res) {
-//     db.Example.findAll({}).then(function(dbExamples) {
-//       res.json(dbExamples);
-//     });
-//   });
+  //   // Get all examples
+  //   app.get("/api/examples", function(req, res) {
+  //     db.Example.findAll({}).then(function(dbExamples) {
+  //       res.json(dbExamples);
+  //     });
+  //   });
+  app.post("/api/signup", function(req, res) {
+    db.User.create({
+      email: req.body.email,
+      password: req.body.password,
+      preferredAnimal: req.body.preferredAnimal,
+      livingSituation: req.body.livingSituation,
+      children: req.body.children,
+      otherCats: req.body.otherCats,
+      otherDogs: req.body.otherDogs,
+      activityLevel: req.body.activityLevel
+    })
+      .then(function() {
+        res.redirect(307, "/api/login");
+      })
+      .catch(function(err) {
+        res.status(401).json(err);
+      });
+  });
+  //   // Create a new example
+  //   app.post("/api/examples", function(req, res) {
+  //     db.Example.create(req.body).then(function(dbExample) {
+  //       res.json(dbExample);
+  //     });
+  //   });
 
-//   // Create a new example
-//   app.post("/api/examples", function(req, res) {
-//     db.Example.create(req.body).then(function(dbExample) {
-//       res.json(dbExample);
-//     });
-//   });
-
-//   // Delete an example by id
-//   app.delete("/api/examples/:id", function(req, res) {
-//     db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-//       res.json(dbExample);
-//     });
-//   });
+  //   // Delete an example by id
+  //   app.delete("/api/examples/:id", function(req, res) {
+  //     db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+  //       res.json(dbExample);
+  //     });
+  //   });
 
   // Create Animals DB
-  app.post("/api/scraper", function(req, res) {
+  app.post("/api/scraper", function() {
     animalsCall("dog", "small", "male");
     animalsCall("dog", "medium", "male");
     animalsCall("dog", "large", "male");

@@ -1,10 +1,23 @@
 body {
     padding-top: 70px;
     margin-bottom: 70px;
-    background-image: url("../images/vectorstock_21617018.png");
-    background-size: contain;
+    background-image: url("../images/colorful-paws.png");
+    background-size: cover;
 }
 
 .container {
     background-color: white;
+}
+
+.rounded {
+    border-radius: .5rem !important;
+}
+
+.navbar {
+    background: rgb(244,104,112);
+}
+
+.btn {
+    background: rgb(244,104,112);
+    color: white;
 }

@@ -58,7 +58,7 @@ $(document).ready(function() {
       otherDogs: otherDogs,
       activityLevel: activityLevel
     })
-      .then(function(data) {
+      .then(function() {
         window.location.replace("/results/" + email);
         // If there's an error, handle it by throwing up a bootstrap alert
       })

@@ -63,6 +63,7 @@ module.exports = function(app) {
   });
   app.post("/api/signup", function(req, res) {
     db.User.create({
+      userName: req.body.userName,
       email: req.body.email,
       password: req.body.password,
       preferredAnimal: req.body.preferredAnimal,

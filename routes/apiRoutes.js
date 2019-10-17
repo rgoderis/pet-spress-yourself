@@ -25,13 +25,13 @@ var animalsCall = function(type, size, gender) {
         } else {
           db.animal
             .create({
-              type: response.data.animals[i].type, 
-              name: response.data.animals[i].name, 
-              breed: response.data.animals[i].breeds.primary, 
-              age: response.data.animals[i].age, 
-              gender: response.data.animals[i].gender, 
-              size: response.data.animals[i].size, 
-              specialNeeds: response.data.animals[i].attributes.special_needs, 
+              type: response.data.animals[i].type,
+              name: response.data.animals[i].name,
+              breed: response.data.animals[i].breeds.primary,
+              age: response.data.animals[i].age,
+              gender: response.data.animals[i].gender,
+              size: response.data.animals[i].size,
+              specialNeeds: response.data.animals[i].attributes.special_needs,
               children: response.data.animals[i].environment.children,
               dogs: response.data.animals[i].environment.dogs,
               cats: response.data.animals[i].environment.cats,
@@ -99,17 +99,19 @@ module.exports = function(app) {
     db.User.findOne({ where: { email: req.params.email } }).then(function(
       results
     ) {
-      db.animal.findAll({
-        where: {
-          type: results.preferredAnimal,
-          children: results.children,
-          cats: results.otherCats,
-          dogs: false,
-          age: "Adult"
-        }
-      }).then(function(result) {
-        console.log(result);
-      });
+      db.animal
+        .findAll({
+          where: {
+            type: results.preferredAnimal,
+            children: results.children,
+            cats: results.otherCats,
+            dogs: false,
+            age: "Adult"
+          }
+        })
+        .then(function(result) {
+          console.log(result);
+        });
       console.log(results);
       res.render("results");
     });

@@ -65,6 +65,10 @@
             <h2>Sign Up</h2>
             <form class="signup">
                 <div class="form-group">
+                <label for="userName">User Name</label>
+                <input type="text" class="form-control" id="userName" placeholder="User Name">
+                </div>
+                <div class="form-group">
                 <label for="userEmail">Email address</label>
                 <input type="email" class="form-control" id="userEmail" placeholder="Email">
                 </div>
@@ -96,12 +100,12 @@
                 <p class="mt-4">2. Where do you currently live?</p>
     
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="apartmentOption" name="livingSituation" value="apartment">
+                    <input type="radio" class="custom-control-input" id="apartmentOption" name="livingSituation" value="Small Medium">
                     <label class="custom-control-label" for="apartmentOption">Apartment/Town House</label>
                 </div>
     
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="houseOption" name="livingSituation" value="house">
+                    <input type="radio" class="custom-control-input" id="houseOption" name="livingSituation" value="Small Medium Large">
                     <label class="custom-control-label" for="houseOption">House</label>
                 </div>
 
@@ -113,7 +117,7 @@
                 </div>
     
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="noKidsOption" name="children" value="false">
+                    <input type="radio" class="custom-control-input" id="noKidsOption" name="children" value="true false">
                     <label class="custom-control-label" for="noKidsOption">No</label>
                 </div>
 
@@ -125,7 +129,7 @@
                 </div>
     
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="noCatsOption" name="otherCats" value="false">
+                    <input type="radio" class="custom-control-input" id="noCatsOption" name="otherCats" value="true false">
                     <label class="custom-control-label" for="noCatsOption">No</label>
                 </div>
 
@@ -137,19 +141,19 @@
                 </div>
     
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="noDogsOption" name="otherDogs" value="false">
+                    <input type="radio" class="custom-control-input" id="noDogsOption" name="otherDogs" value="true false">
                     <label class="custom-control-label" for="noDogsOption">No</label>
                 </div>
 
                 <p class="mt-4">6. Which of the following sounds more appealing to you?</p>
     
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="inactiveOption" name="activityLevel" value="inactive">
+                    <input type="radio" class="custom-control-input" id="inactiveOption" name="activityLevel" value="Adult Senior">
                     <label class="custom-control-label" for="inactiveOption">Relaxing at home</label>
                 </div>
     
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="activeOption" name="activityLevel" value="active">
+                    <input type="radio" class="custom-control-input" id="activeOption" name="activityLevel" value="Baby Young Adult">
                     <label class="custom-control-label" for="activeOption">Hiking outdoors</label>
                 </div>
 

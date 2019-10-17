@@ -16,7 +16,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
-  app.get("/results", isAuthenticated, function(req, res) {
+  app.get("/results/:email", isAuthenticated, function(req, res) {
     if (!req.user) {
       res.redirect("/");
     }

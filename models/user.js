@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     otherDogs: {
-      type: DataTypes.STRING,
+      type: DataTypes.BOOLEAN,
       allowNull: false
     },
     activityLevel: {

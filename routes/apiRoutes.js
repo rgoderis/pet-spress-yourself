@@ -93,6 +93,27 @@ module.exports = function(app) {
   //     });
   //   });
 
+  // retrieve information from user
+  app.get("/results/:email", function(req, res) {
+    db.User.findOne({ where: { email: req.params.email } }).then(function(
+      results
+    ) {
+      db.animal.findAll({
+        where: {
+          type: results.preferredAnimal,
+          children: results.children,
+          cats: results.otherCats,
+          dogs: false,
+          age: "Adult"
+        }
+      }).then(function(result) {
+        console.log(result);
+      });
+      console.log(results);
+      res.render("results");
+    });
+  });
+
   // Create Animals DB
   app.post("/api/scraper", function() {
     animalsCall("dog", "small", "male");

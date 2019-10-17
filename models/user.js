@@ -28,15 +28,15 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     children: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.STRING,
       allowNull: false
     },
     otherCats: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.STRING,
       allowNull: false
     },
     otherDogs: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.STRING,
       allowNull: false
     },
     activityLevel: {

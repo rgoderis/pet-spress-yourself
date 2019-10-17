@@ -38,7 +38,7 @@ var animalsCall = function(type, size, gender) {
               photo: response.data.animals[i].photos[0].medium,
               url: response.data.animals[i].url
             })
-            .then(function(results) {
+            .then(function() {
               console.log("Scraping API for new data...");
             });
         }

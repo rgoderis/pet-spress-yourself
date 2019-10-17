@@ -99,22 +99,35 @@ module.exports = function(app) {
     db.User.findOne({ where: { email: req.params.email } }).then(function(
       results
     ) {
-      db.animal
-        .findAll({
-          where: {
-            type: results.preferredAnimal,
-            children: results.children,
-            cats: results.otherCats,
-            dogs: false,
-            age: "Adult"
-          }
-        })
-        .then(function(result) {
-          console.log(result);
-        });
-      console.log(results);
-      res.render("results");
-    });
+      var livingArr = results.livingSituation.split(" ");
+      if(livingArr.indexOf('Large') !== -1){
+        livingArr.push("Extra Large");
+      }
+      console.log(livingArr);
+      var childrenArr = results.children.split("-").map(Number);
+      var catsArr = results.otherCats.split("-").map(Number);
+      var dogsArr = results.otherDogs.split("-").map(Number);
+      var ageArr = results.activityLevel.split(" ");
+      console.log(childrenArr);
+      console.log(catsArr);
+      console.log(dogsArr);
+      console.log(ageArr);
+    //   db.animal
+    //     .findAll({
+    //       where: {
+    //         type: results.preferredAnimal,
+    //         children: results.children,
+    //         cats: results.otherCats,
+    //         dogs: false,
+    //         age: "Adult"
+    //       }
+    //     })
+    //     .then(function(result) {
+    //       console.log(result);
+    //     });
+    //   console.log(results);
+    //   res.render("results");
+    // });
   });
 
   // Create Animals DB

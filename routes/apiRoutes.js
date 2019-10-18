@@ -75,7 +75,7 @@ module.exports = function(app) {
   });
 
   // post to favorites table
-  app.post("api/favorites/:userName", function(req, res){
+  app.post("/api/favorites/:userName", function(req, res){
     db.User.findOne({ where: { userName: req.params.userName } }).then(function(
       userResult
     ){

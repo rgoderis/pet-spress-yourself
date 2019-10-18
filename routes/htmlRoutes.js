@@ -4,7 +4,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   // GET route for data scraper page
-  app.get("/api/scraper", function(req, res) {
+  app.get("/scraper", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/scraper.html"));
   });
 

@@ -51,13 +51,6 @@ var animalsCall = function(type, size, gender) {
 };
 
 module.exports = function(app) {
-  //   // Get all examples
-  //   app.get("/api/examples", function(req, res) {
-  //     db.Example.findAll({}).then(function(dbExamples) {
-  //       res.json(dbExamples);
-  //     });
-  //   });
-
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
     console.log(req.user);
@@ -82,19 +75,31 @@ module.exports = function(app) {
         res.status(401).json(err);
       });
   });
-  //   // Create a new example
-  //   app.post("/api/examples", function(req, res) {
-  //     db.Example.create(req.body).then(function(dbExample) {
-  //       res.json(dbExample);
-  //     });
-  //   });
 
-  //   // Delete an example by id
-  //   app.delete("/api/examples/:id", function(req, res) {
-  //     db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-  //       res.json(dbExample);
-  //     });
-  //   });
+  // post to favorites table
+  app.post("/api/favorites/:userName", function(req, res){
+    db.User.findOne({ where: { userName: req.params.userName } }).then(function(
+      userResult
+    ){
+      db.animal.findOne({ where: { id: req.body.id } }).then(function(
+        animalResult
+      ){
+        db.favorites.create({
+          name: animalResult.name,
+          breed: animalResult.breed,
+          age: animalResult.age,
+          gender: animalResult.gender,
+          size: animalResult.size,
+          photo: animalResult.photo,
+          url: animalResult.url,
+          userId: userResult.id,
+          animalId: animalResult.id
+        }).then(function(){
+          console.log("animal favorited");
+        });
+      });
+    });
+  });
 
   // retrieve information from user
   app.get("/results/:userName", function(req, res) {
@@ -138,15 +143,12 @@ module.exports = function(app) {
           limit:1
         })
         .then(function(dbAnimals) {
-          console.log(results)
-          console.log(dbAnimals);
           var animalObj = {
             animals: dbAnimals,
             results: results.userName
           }
           res.render("results", animalObj)
         });
-      // console.log(results);
     });
   });
 

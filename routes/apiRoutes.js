@@ -81,7 +81,8 @@ module.exports = function(app) {
     db.User.findOne({ where: { userName: req.params.userName } }).then(function(
       userResult
     ){
-      db.animal.findOne({ where: { id: req.body.id } }).then(function(
+      console.log(req.body.animalId)
+      db.animal.findOne({ where: { id: req.body.animalId } }).then(function(
         animalResult
       ){
         db.favorites.create({
@@ -110,16 +111,10 @@ module.exports = function(app) {
       if(livingArr.indexOf('Large') !== -1){
         livingArr.push("Extra Large");
       }
-      // console.log(livingArr);
       const childrenArr = results.children.split("-").map(Number);
       const catsArr = results.otherCats.split("-").map(Number);
       const dogsArr = results.otherDogs.split("-").map(Number);
       const ageArr = results.activityLevel.split(" ");
-      
-      // console.log(childrenArr);
-      // console.log(catsArr);
-      // console.log(dogsArr);
-      // console.log(ageArr);
       db.animal
         .findAll({
           where: {

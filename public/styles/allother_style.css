@@ -21,3 +21,9 @@ body {
     background: rgb(244,104,112);
     color: white;
 }
+
+.card-img-top {
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+}

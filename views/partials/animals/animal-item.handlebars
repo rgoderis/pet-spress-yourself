@@ -1,0 +1,25 @@
+<div class="card mb-4">
+
+    <!--Card image-->
+    <div class="view overlay">
+        <img class="card-img-top" src="{{dataValues.photo}}" alt="Pet Image">
+        <div class="mask rgba-white-slight"></div>
+    </div>
+
+    <!--Card content-->
+    <div class="card-body">
+
+    <!--Title-->
+    <h4 class="card-title">{{dataValues.name}}</h4>
+    <!--Text-->
+    <p class="card-text"><strong>Gender:</strong> {{dataValues.gender}}</p>
+    <p class="card-text"><strong>Breed:</strong> {{dataValues.breed}}</p>
+    <p class="card-text"><strong>Age:</strong> {{dataValues.age}}</p>
+    <p class="card-text"><strong>Size:</strong> {{dataValues.size}}</p>
+    <a href="{{dataValues.url}}"><p>Find Out More</p></a>
+
+    <button type="button" class="btn btn-md" data-id="{{dataValues.id}}">Favorite <i class="fas fa-star"></i> </button>
+
+    </div>
+
+</div>

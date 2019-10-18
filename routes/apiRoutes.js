@@ -102,6 +102,20 @@ module.exports = function(app) {
     });
   });
 
+  // get request to /favorites/:userName
+  app.get("/favorites/:userName", function(req, res){
+    db.User.findOne({ where: { userName: req.params.userName } }).then(function(
+      result
+    ){
+      db.favorites.findAll({ where: { userId: result.id } }).then(function(dbFavs){
+        var favObj = {
+          favorites: dbFavs
+        }
+        res.render("favorites", favObj);
+      });
+    });
+  });
+
   // retrieve information from user
   app.get("/results/:userName", function(req, res) {
     db.User.findOne({ where: { userName: req.params.userName } }).then(function(

@@ -133,13 +133,16 @@ module.exports = function(app) {
               [db.Sequelize.Op.or]: livingArr
             }
           },
-          limit:20
+          limit:15
         })
-        .then(function(result) {
-          console.log(result);
+        .then(function(dbAnimals) {
+          console.log(dbAnimals);
+          var animalObj = {
+            animals: dbAnimals
+          }
+          res.render("results", animalObj)
         });
       console.log(results);
-      res.render("results");
     });
   });
 

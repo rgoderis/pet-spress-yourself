@@ -64,7 +64,7 @@ $(document).ready(function() {
       activityLevel: activityLevel
     })
       .then(function() {
-        window.location.replace("/results/" + email);
+        window.location.replace("/results/" + userName);
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);

@@ -95,8 +95,8 @@ module.exports = function(app) {
   //   });
 
   // retrieve information from user
-  app.get("/results/:email", function(req, res) {
-    db.User.findOne({ where: { email: req.params.email } }).then(function(
+  app.get("/results/:userName", function(req, res) {
+    db.User.findOne({ where: { userName: req.params.userName } }).then(function(
       results
     ) {
       let livingArr = results.livingSituation.split(" ");

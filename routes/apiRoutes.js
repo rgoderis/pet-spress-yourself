@@ -123,6 +123,16 @@ module.exports = function(app) {
     });
   });
 
+  app.delete("/api/favorites/:id", function(req, res) {
+      db.favorite.destroy({
+        where: {
+          id: req.params.id
+        }
+    }).then(function(dbFavs){
+      res.json(dbFavs)
+    })
+  })
+
   // retrieve information from user
   app.get("/results/:userName", function(req, res) {
     db.User.findOne({ where: { userName: req.params.userName } }).then(function(

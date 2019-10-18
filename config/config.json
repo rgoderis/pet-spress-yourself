@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Root",
+    "password": "rootroot",
     "database": "petSpressDB",
     "host": "localhost",
     "dialect": "mysql"

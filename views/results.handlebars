@@ -25,12 +25,14 @@
     </div>
 </nav>
 
-<h3>Welcome</h3>
+<h3 data-name="{{results}}">Welcome {{results}}</h3>
 
 <div class="container rounded pt-3">
     <div class="card-columns">
         {{#each animals}}
-            {{> animals/animal-item}}
+            {{> animals/animal-item userId=results}}
         {{/each}}
     </div>
 </div>
+
+<script src="/js/results.js"></script>

@@ -27,3 +27,11 @@ body {
     height: 20vw;
     object-fit: cover;
 }
+
+.hide {
+    display: block;
+}
+
+.show {
+    display: none;
+}

@@ -60,6 +60,8 @@ module.exports = function(app) {
 
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
+    console.log(req.user);
+    
   });
   app.post("/api/signup", function(req, res) {
     db.User.create({
@@ -103,16 +105,16 @@ module.exports = function(app) {
       if(livingArr.indexOf('Large') !== -1){
         livingArr.push("Extra Large");
       }
-      console.log(livingArr);
+      // console.log(livingArr);
       const childrenArr = results.children.split("-").map(Number);
       const catsArr = results.otherCats.split("-").map(Number);
       const dogsArr = results.otherDogs.split("-").map(Number);
       const ageArr = results.activityLevel.split(" ");
       
-      console.log(childrenArr);
-      console.log(catsArr);
-      console.log(dogsArr);
-      console.log(ageArr);
+      // console.log(childrenArr);
+      // console.log(catsArr);
+      // console.log(dogsArr);
+      // console.log(ageArr);
       db.animal
         .findAll({
           where: {
@@ -133,16 +135,18 @@ module.exports = function(app) {
               [db.Sequelize.Op.or]: livingArr
             }
           },
-          limit:15
+          limit:1
         })
         .then(function(dbAnimals) {
+          console.log(results)
           console.log(dbAnimals);
           var animalObj = {
-            animals: dbAnimals
+            animals: dbAnimals,
+            results: results.userName
           }
           res.render("results", animalObj)
         });
-      console.log(results);
+      // console.log(results);
     });
   });
 

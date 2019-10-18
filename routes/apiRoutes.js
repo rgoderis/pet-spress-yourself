@@ -56,6 +56,12 @@ module.exports = function(app) {
     console.log(req.user);
     
   });
+
+  app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
+  });
+  
   app.post("/api/signup", function(req, res) {
     db.User.create({
       userName: req.body.userName,
@@ -85,7 +91,7 @@ module.exports = function(app) {
       db.animal.findOne({ where: { id: req.body.animalId } }).then(function(
         animalResult
       ){
-        db.favorites.create({
+        db.favorite.create({
           name: animalResult.name,
           breed: animalResult.breed,
           age: animalResult.age,
@@ -107,9 +113,10 @@ module.exports = function(app) {
     db.User.findOne({ where: { userName: req.params.userName } }).then(function(
       result
     ){
-      db.favorites.findAll({ where: { userId: result.id } }).then(function(dbFavs){
+      db.favorite.findAll({ where: { userId: result.id } }).then(function(dbFavs){
         var favObj = {
-          favorites: dbFavs
+          favorites: dbFavs,
+          result: result.userName
         }
         res.render("favorites", favObj);
       });

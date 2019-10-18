@@ -15,24 +15,22 @@
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/favorites/{{results}}">View Favorites</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="/favorites/{{results}}">View Favorites <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/logout">Log Out</a>
+                <a class="nav-link" href="/">Log Out</a>
             </li>
         </ul>
     </div>
 </nav>
 
-<h3 data-name="{{results}}">Welcome {{results}}</h3>
+<h3>Welcome {{result}}</h3>
 
 <div class="container rounded pt-3">
     <div class="card-columns">
-        {{#each animals}}
-            {{> animals/animal-item}}
+        {{#each favorites}}
+            {{> favorites/fav-item}}
         {{/each}}
     </div>
 </div>
-
-<script src="/js/results.js"></script>

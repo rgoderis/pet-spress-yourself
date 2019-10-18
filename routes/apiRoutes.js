@@ -53,7 +53,7 @@ var animalsCall = function(type, size, gender) {
 module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
-    console.log(req.user);
+    // console.log(req.user);
     
   });
 
@@ -87,23 +87,30 @@ module.exports = function(app) {
     db.User.findOne({ where: { userName: req.params.userName } }).then(function(
       userResult
     ){
-      console.log(req.body.animalId)
-      db.animal.findOne({ where: { id: req.body.animalId } }).then(function(
-        animalResult
-      ){
-        db.favorite.create({
-          name: animalResult.name,
-          breed: animalResult.breed,
-          age: animalResult.age,
-          gender: animalResult.gender,
-          size: animalResult.size,
-          photo: animalResult.photo,
-          url: animalResult.url,
-          userId: userResult.id,
-          animalId: animalResult.id
-        }).then(function(){
-          console.log("animal favorited");
-        });
+      console.log(req.body.animalId);
+      console.log(userResult.id)
+      db.favorite.findOne({ where: { userId : userResult.id, animalId: req.body.animalId}}).then(function(inFavorite){
+        if(inFavorite === null){
+          db.animal.findOne({ where: { id: req.body.animalId } }).then(function(
+            animalResult
+          ){
+            db.favorite.create({
+              name: animalResult.name,
+              breed: animalResult.breed,
+              age: animalResult.age,
+              gender: animalResult.gender,
+              size: animalResult.size,
+              photo: animalResult.photo,
+              url: animalResult.url,
+              userId: userResult.id,
+              animalId: animalResult.id
+            }).then(function(){
+              console.log("animal favorited");
+            });
+          });
+        } else {
+          console.log("animal already favorited");
+        }
       });
     });
   });

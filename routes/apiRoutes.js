@@ -159,6 +159,7 @@ module.exports = function(app) {
           limit:15
         })
         .then(function(dbAnimals) {
+
           var animalObj = {
             animals: dbAnimals,
             results: results.userName

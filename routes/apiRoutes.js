@@ -135,7 +135,7 @@ module.exports = function(app) {
               [db.Sequelize.Op.or]: livingArr
             }
           },
-          limit:1
+          limit:15
         })
         .then(function(dbAnimals) {
           var animalObj = {

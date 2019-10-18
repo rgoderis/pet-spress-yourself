@@ -24,7 +24,7 @@ $(document).ready(function() {
       password: password
     })
       .then(function() {
-        window.location.replace("/results/" + email);
+        window.location.replace("/results/" + userName);
       })
       .catch(function(err) {
         console.log(err);

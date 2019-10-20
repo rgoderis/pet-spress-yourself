@@ -35,3 +35,11 @@ body {
 .role {
     color: rgb(244,104,112);
 }
+
+.avatar-img {
+    object-fit: cover;
+}
+
+.page-title {
+    font-family: 'Pacifico', cursive;
+}

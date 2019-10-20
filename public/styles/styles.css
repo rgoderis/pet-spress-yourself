@@ -7,6 +7,10 @@ body {
   margin-bottom: 70px;
 }
 
+.page-title {
+  font-family: 'Pacifico', cursive;
+}
+
 .navbar, .page-footer {
   background: rgb(244,104,112);
 } 

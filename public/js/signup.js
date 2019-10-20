@@ -19,7 +19,6 @@ $(document).ready(function() {
       otherDogs: $("input[name=otherDogs]:checked").val(),
       activityLevel: $("input[name=activityLevel]:checked").val()
     };
-
     if (!userData.userName || !userData.email || !userData.password) {
       return;
     }
@@ -38,7 +37,6 @@ $(document).ready(function() {
     emailInput.val("");
     passwordInput.val("");
   });
-
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
   function signUpUser(
@@ -69,7 +67,6 @@ $(document).ready(function() {
       })
       .catch(handleLoginErr);
   }
-
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);

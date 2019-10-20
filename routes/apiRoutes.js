@@ -1,15 +1,15 @@
-var db = require("../models");
-var petfinder = require("@petfinder/petfinder-js");
-var passport = require("../config/passport");
+const db = require("../models");
+const petfinder = require("@petfinder/petfinder-js");
+const passport = require("../config/passport");
 
 require("dotenv").config();
 
-var client = new petfinder.Client({
+const client = new petfinder.Client({
   apiKey: process.env.petKey,
   secret: process.env.petSecret
 });
 
-var animalsCall = function(type, size, gender) {
+const animalsCall = function(type, size, gender) {
   client.animal
     .search({
       type: type,
@@ -53,7 +53,7 @@ var animalsCall = function(type, size, gender) {
 module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
-    console.log(req.user);
+    // console.log(req.user);
     
   });
 
@@ -87,23 +87,28 @@ module.exports = function(app) {
     db.User.findOne({ where: { userName: req.params.userName } }).then(function(
       userResult
     ){
-      console.log(req.body.animalId)
-      db.animal.findOne({ where: { id: req.body.animalId } }).then(function(
-        animalResult
-      ){
-        db.favorite.create({
-          name: animalResult.name,
-          breed: animalResult.breed,
-          age: animalResult.age,
-          gender: animalResult.gender,
-          size: animalResult.size,
-          photo: animalResult.photo,
-          url: animalResult.url,
-          userId: userResult.id,
-          animalId: animalResult.id
-        }).then(function(){
-          console.log("animal favorited");
-        });
+      db.favorite.findOne({ where: { userId : userResult.id, animalId: req.body.animalId}}).then(function(inFavorite){
+        if(inFavorite === null){
+          db.animal.findOne({ where: { id: req.body.animalId } }).then(function(
+            animalResult
+          ){
+            db.favorite.create({
+              name: animalResult.name,
+              breed: animalResult.breed,
+              age: animalResult.age,
+              gender: animalResult.gender,
+              size: animalResult.size,
+              photo: animalResult.photo,
+              url: animalResult.url,
+              userId: userResult.id,
+              animalId: animalResult.id
+            }).then(function(){
+              console.log("animal favorited");
+            });
+          });
+        } else {
+          console.log("animal already favorited");
+        }
       });
     });
   });
@@ -114,7 +119,7 @@ module.exports = function(app) {
       result
     ){
       db.favorite.findAll({ where: { userId: result.id } }).then(function(dbFavs){
-        var favObj = {
+        const favObj = {
           favorites: dbFavs,
           result: result.userName
         }
@@ -122,6 +127,16 @@ module.exports = function(app) {
       });
     });
   });
+
+  app.delete("/api/favorites/:id", function(req, res) {
+      db.favorite.destroy({
+        where: {
+          id: req.params.id
+        }
+    }).then(function(dbFavs){
+      res.json(dbFavs)
+    })
+  })
 
   // retrieve information from user
   app.get("/results/:userName", function(req, res) {
@@ -159,7 +174,7 @@ module.exports = function(app) {
           limit:15
         })
         .then(function(dbAnimals) {
-          var animalObj = {
+          const animalObj = {
             animals: dbAnimals,
             results: results.userName
           }

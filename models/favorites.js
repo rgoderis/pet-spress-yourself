@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Favorites = sequelize.define("favorite", {
+  const Favorites = sequelize.define("favorite", {
     name: DataTypes.STRING,
     breed: DataTypes.STRING,
     age: DataTypes.STRING,

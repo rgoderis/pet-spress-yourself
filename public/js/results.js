@@ -8,7 +8,7 @@ $(".fav-btn").on("click", function(event) {
     animalId: animalId
   };
 
-  $.ajax("/api/favorites/" + $("h3").attr("data-name"), {
+  $.ajax("/api/favorites/" + $("#user-name").attr("data-name"), {
     type: "POST",
     data: favAnimal
   }).then(function() {

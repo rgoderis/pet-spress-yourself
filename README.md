@@ -45,3 +45,7 @@ The favorites page shows the dogs or cats that you have favorited.
 * Have the animals table auto update.
 * Show all the results instead of the 15 we currently show.
 * Let users update their survey.
+
+## Deployed App
+
+[Deployed App](https://pet-spress-yourself.herokuapp.com/)

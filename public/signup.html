@@ -61,121 +61,87 @@
     <div class="container rounded mt-2 py-3">
         <div class="row">
             <div class="col justify-content-center">
-            <!-- Sign Up Form -->
-            <h2>Sign Up</h2>
-            <form class="signup">
-                <div class="form-group">
-                <label for="userName">User Name</label>
-                <input type="text" class="form-control" id="userName" placeholder="User Name">
-                </div>
-                <div class="form-group">
-                <label for="userEmail">Email address</label>
-                <input type="email" class="form-control" id="userEmail" placeholder="Email">
-                </div>
-                <div class="form-group">
-                <label for="userPassword">Password</label>
-                <input type="password" class="form-control" id="userPassword" placeholder="Password">
-                </div>
-                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                <span class="sr-only">Error:</span> <span class="msg"></span>
-                </div>
-    
-                <br>
-                <!-- Questionnaire -->
-                <h4>Answer the following questions to be matched with your purr-fect pet!</h4>
-
-                <p class="mt-4">1. Which do you prefer?</p>
-    
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="catOption" name="preferredAnimal" value="cat">
-                    <label class="custom-control-label" for="catOption">Cats</label>
-                </div>
-    
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="dogOption" name="preferredAnimal" value="dog">
-                    <label class="custom-control-label" for="dogOption">Dogs</label>
-                </div>
-
-                <p class="mt-4">2. Where do you currently live?</p>
-    
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="apartmentOption" name="livingSituation" value="Small Medium">
-                    <label class="custom-control-label" for="apartmentOption">Apartment/Town House</label>
-                </div>
-    
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="houseOption" name="livingSituation" value="Small Medium Large">
-                    <label class="custom-control-label" for="houseOption">House</label>
-                </div>
-
-                <p class="mt-4">3. Do you have young children?</p>
-    
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="yesKidsOption" name="children" value="1">
-                    <label class="custom-control-label" for="yesKidsOption">Yes</label>
-                </div>
-    
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="noKidsOption" name="children" value="1-0">
-                    <label class="custom-control-label" for="noKidsOption">No</label>
-                </div>
-
-                <p class="mt-4">4. Do you currently have any other cats?</p>
-    
-                <div class="custom-control custom-radio custom-control-inline">
-
-                    
-
-                    <input type="radio" class="custom-control-input" id="yesCatsOption" name="otherCats" value="1">
-
-                    <label class="custom-control-label" for="yesCatsOption">Yes</label>
-                </div>
-    
-                <div class="custom-control custom-radio custom-control-inline">
-
-                    <input type="radio" class="custom-control-input" id="noCatsOption" name="otherCats" value="1-0">
-
-                    
-
-                    <label class="custom-control-label" for="noCatsOption">No</label>
-                </div>
-
-                <p class="mt-4">5. Do you currently have any other dogs?</p>
-    
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="yesDogsOption" name="otherDogs" value="1">
-                    <label class="custom-control-label" for="yesDogsOption">Yes</label>
-                </div>
-    
-                <div class="custom-control custom-radio custom-control-inline">
-
-                    <input type="radio" class="custom-control-input" id="noDogsOption" name="otherDogs" value="1-0">
-
-                  
-
-                    <label class="custom-control-label" for="noDogsOption">No</label>
-                </div>
-
-                <p class="mt-4">6. Which of the following sounds more appealing to you?</p>
-    
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="inactiveOption" name="activityLevel" value="Adult Senior">
-                    <label class="custom-control-label" for="inactiveOption">Relaxing at home</label>
-                </div>
-    
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="activeOption" name="activityLevel" value="Baby Young Adult">
-                    <label class="custom-control-label" for="activeOption">Hiking outdoors</label>
-                </div>
-
-                <br>
-                <button type="submit" class="btn btn mt-4">Sign Up</button>
+                <!-- Sign Up Form -->
+                <h2>Sign Up</h2>
+                <form class="signup">
+                    <div class="form-group">
+                        <label for="userName">User Name</label>
+                        <input type="text" class="form-control" id="userName" placeholder="User Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmail">Email address</label>
+                        <input type="email" class="form-control" id="userEmail" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="userPassword">Password</label>
+                        <input type="password" class="form-control" id="userPassword" placeholder="Password">
+                    </div>
+                    <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span> <span class="msg"></span>
+                    </div>
+                    <br>
+                    <!-- Questionnaire -->
+                    <h4>Answer the following questions to be matched with your purr-fect pet!</h4>
+                    <p class="mt-4">1. Which do you prefer?</p>    
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="catOption" name="preferredAnimal" value="cat">
+                        <label class="custom-control-label" for="catOption">Cats</label>
+                    </div>    
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="dogOption" name="preferredAnimal" value="dog">
+                        <label class="custom-control-label" for="dogOption">Dogs</label>
+                    </div>
+                    <p class="mt-4">2. Where do you currently live?</p>   
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="apartmentOption" name="livingSituation" value="Small Medium">
+                        <label class="custom-control-label" for="apartmentOption">Apartment/Town House</label>
+                    </div>   
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="houseOption" name="livingSituation" value="Small Medium Large">
+                        <label class="custom-control-label" for="houseOption">House</label>
+                    </div>
+                    <p class="mt-4">3. Do you have young children?</p>   
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="yesKidsOption" name="children" value="1">
+                        <label class="custom-control-label" for="yesKidsOption">Yes</label>
+                    </div>    
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="noKidsOption" name="children" value="1-0">
+                        <label class="custom-control-label" for="noKidsOption">No</label>
+                    </div>
+                    <p class="mt-4">4. Do you currently have any other cats?</p>    
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="yesCatsOption" name="otherCats" value="1">
+                        <label class="custom-control-label" for="yesCatsOption">Yes</label>
+                    </div>    
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="noCatsOption" name="otherCats" value="1-0">                    
+                        <label class="custom-control-label" for="noCatsOption">No</label>
+                    </div>
+                    <p class="mt-4">5. Do you currently have any other dogs?</p>    
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="yesDogsOption" name="otherDogs" value="1">
+                        <label class="custom-control-label" for="yesDogsOption">Yes</label>
+                    </div>  
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="noDogsOption" name="otherDogs" value="1-0">
+                        <label class="custom-control-label" for="noDogsOption">No</label>
+                    </div>
+                    <p class="mt-4">6. Which of the following sounds more appealing to you?</p>   
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="inactiveOption" name="activityLevel" value="Adult Senior">
+                        <label class="custom-control-label" for="inactiveOption">Relaxing at home</label>
+                    </div>    
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="activeOption" name="activityLevel" value="Baby Young Adult">
+                        <label class="custom-control-label" for="activeOption">Hiking outdoors</label>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn mt-4">Sign Up</button>
+                </form>
             </div>
-
-            </form>
-            </div>
-
+        </div>
     </div>
     
     <!-- Footer -->
